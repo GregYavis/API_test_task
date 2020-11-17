@@ -1,0 +1,19 @@
+{% extends 'poll/homepage.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+        <h1>{{ form }}</h1>
+        <button class="btn btn-primary btn-lg btn-block"
+                type="submit">Continue to checkout
+        </button>
+    </form>
+{% endblock %}
+</body>
+</html>

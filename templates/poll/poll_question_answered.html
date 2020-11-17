@@ -1,0 +1,20 @@
+{% extends 'poll/homepage.html' %}
+{% block content %}
+    {% for question in questions %}
+        <div>
+        <h3>{{ question }}</h3>
+        {% for answer in question.answer_set.all %}
+            <div>
+                {{ answer }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% if unanswered %}
+    <h3>Неотвеченные вопросы</h3>
+    {% for no_answer in unanswered %}
+        <div>
+            <a href="{{ no_answer.get_absolute_url }}">{{ no_answer }}</a>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}
