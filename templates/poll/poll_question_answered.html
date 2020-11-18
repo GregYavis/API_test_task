@@ -4,9 +4,11 @@
         <div>
         <h3>{{ question }}</h3>
         {% for answer in question.answer_set.all %}
+            {% if request.user|stringformat:"s" == answer.answer_by_user%}
             <div>
                 {{ answer }}
             </div>
+            {% endif %}
         {% endfor %}
     {% endfor %}
 {% if unanswered %}

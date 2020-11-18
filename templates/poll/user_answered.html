@@ -3,21 +3,6 @@
     {% for poll in answered %}
         <div>
             <a href="{{ poll.get_answered_url }}">{{ poll }}</a>
-        {% comment %}
-            {% for question in poll.question_set.all %}
-                <div>
-                    <h3>{{ question }}</h3>
-                    {% for answer in question.answer_set.all %}
-
-                            <div>
-                                <h5>Ваш ответ: {{ answer }}</h5>
-                            </div>
-
-                    {% endfor %}
-                </div>
-            {% endfor %}
-            {% endcomment %}
         </div>
-
     {% endfor %}
 {% endblock %}

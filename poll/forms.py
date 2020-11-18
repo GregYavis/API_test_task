@@ -24,14 +24,3 @@ class ChooseOneForm(forms.Form):
 
 class TextInputForm(forms.Form):
     form = forms.CharField(widget=forms.TextInput)
-
-
-"""class ChoiseForm(forms.Form):
-
-    options = (
-        ("AUT", "Austria"),
-        ("DEU", "Germany"),
-        ("NLD", "Neitherlands"),
-    )
-    form = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                     choices=options)"""

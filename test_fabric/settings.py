@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'poll',
-    #'poll.apps.PollConfig',
+    'rest_framework',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -72,7 +73,7 @@ TEMPLATES = [
         },
     },
 ]
-
+SESSION_SAVE_EVERY_REQUEST = True
 WSGI_APPLICATION = 'test_fabric.wsgi.application'
 
 

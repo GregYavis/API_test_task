@@ -1,7 +1,7 @@
 {% extends 'poll/homepage.html' %}
 {% block content %}
 
-    {% for question in questions.question_set.all %}
+    {% for question in questions %}
         <a href="{{ question.get_absolute_url }}"
         >{{ question.question_text }}</a></br>
     {% endfor %}

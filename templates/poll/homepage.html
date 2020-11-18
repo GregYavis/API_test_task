@@ -25,7 +25,8 @@
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <a class=" navbar-brand mr-4" href="#">Home</a>
+            <a class=" navbar-brand mr-4" href="
+{% url 'poll:polls-list' %}">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarToggle" aria-controls="navbarToggle"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -34,30 +35,23 @@
 
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="tg://join?invite=CDbBZxsqdWOB2UhTf--z_g ">Monitor</a>
+                    <a class="nav-item nav-link"
+                       href="{% url "poll:passed-polls" %}">Отвеченное</a>
 
                 </div>
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    <form method="GET" action="#">
-                        {% csrf_token %}
-                        <input class="form-control mr-sm-2"
-                               placeholder="Search" aria-label="Search"
-                               value="q" name="q" type="text">
-                    </form>
-
-                </div>
             </div>
         </div>
     </nav>
 </header>
-<div style="margin-top: 80px;border:saddlebrown solid">
-
+<div style="margin-top: 80px">
     {% block content %}
-    {% for poll in polls %}
-        <a href="{{ poll.get_absolute_url }}"
-        >{{ poll.poll_name }}</a>
-    {% endfor %}
+        {% for poll in polls %}
+            <div>
+            <a href="{{ poll.get_absolute_url }}"
+            >{{ poll.poll_name }}</a>
+            </div>
+        {% endfor %}
     {% endblock %}
 </div>
 </body>
