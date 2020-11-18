@@ -124,7 +124,7 @@ class PollsView(ListView):
     def get(self, *args, **kwargs):
         polls = Poll.objects.all()
         actual_polls = [poll for poll in polls if poll.end_date
-                        > datetime.datetime.now().date()]
+                        >= datetime.datetime.now().date()]
         context = {'polls': actual_polls}
         return render(self.request, 'poll/homepage.html', context)
 
